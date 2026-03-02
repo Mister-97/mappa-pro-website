@@ -480,6 +480,69 @@ section{padding:100px 40px;position:relative}
 .btn-pricing:hover{background:var(--accent2);box-shadow:0 8px 28px rgba(26,94,184,.5);transform:translateY(-1px)}
 .p-note{font-size:12.5px;color:var(--text3);text-align:center;margin-top:10px}
 
+/* ── GROW ── */
+#grow{background:var(--bg);padding:100px 40px}
+.grow-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 400px;gap:80px;align-items:center}
+.grow-left{}
+.grow-title{font-size:clamp(32px,4vw,52px);font-weight:900;letter-spacing:-2px;line-height:1.08;color:var(--text);margin-bottom:16px}
+.grow-sub{font-size:17px;color:var(--text2);line-height:1.7;max-width:480px;margin-bottom:52px}
+.grow-feats{display:grid;grid-template-columns:1fr 1fr;gap:36px 48px;margin-bottom:44px}
+.gf-icon{width:36px;height:36px;margin-bottom:14px;color:var(--text)}
+.gf-icon svg{width:36px;height:36px}
+.gf-title{font-size:17px;font-weight:800;color:var(--text);letter-spacing:-.3px;margin-bottom:7px}
+.gf-desc{font-size:14.5px;color:var(--text2);line-height:1.65}
+.grow-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  background:var(--purple);border:1.5px solid rgba(26,94,184,.18);
+  color:var(--accent);font-size:15px;font-weight:700;
+  padding:14px 26px;border-radius:12px;text-decoration:none;
+  transition:all .2s;
+}
+.grow-cta:hover{background:var(--accent);color:#fff;border-color:var(--accent);box-shadow:0 6px 20px rgba(26,94,184,.3)}
+
+/* right: analytics mockup card */
+.grow-card{
+  background:#fff;border:1.5px solid var(--border);border-radius:24px;
+  padding:28px;box-shadow:0 4px 6px rgba(0,0,0,0.04),0 20px 56px rgba(0,0,0,0.09);
+  position:relative;overflow:hidden;
+}
+.gc-label{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:20px}
+.gc-total-lbl{font-size:13px;color:var(--text2);margin-bottom:4px}
+.gc-total{font-size:36px;font-weight:900;letter-spacing:-1.5px;color:var(--text);margin-bottom:28px}
+.gc-chart{position:relative;height:140px;display:flex;align-items:flex-end;gap:8px;padding-bottom:1px}
+.gc-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;gap:6px}
+.gc-bar{
+  width:100%;border-radius:6px 6px 0 0;
+  background:linear-gradient(180deg,rgba(26,94,184,.18),rgba(59,154,212,.1));
+  transition:height .6s cubic-bezier(.16,1,.3,1);
+}
+.gc-line{
+  position:absolute;bottom:0;left:0;right:0;height:100%;pointer-events:none;
+}
+.gc-lbl{font-size:10px;color:var(--text3);white-space:nowrap}
+.gc-footer{display:flex;align-items:center;justify-content:space-between;margin-top:20px;padding-top:16px;border-top:1px solid var(--border)}
+.gc-period{font-size:12.5px;color:var(--text2);font-weight:500}
+.gc-badge{
+  font-size:12px;font-weight:700;color:#16a34a;
+  background:var(--green);border-radius:100px;padding:4px 10px;
+}
+@keyframes gcBars{from{transform:scaleY(0);transform-origin:bottom} to{transform:scaleY(1);transform-origin:bottom}}
+.grow-card.visible .gc-bar{animation:gcBars .7s cubic-bezier(.16,1,.3,1) both}
+.gc-bar-wrap:nth-child(1) .gc-bar{animation-delay:.05s}
+.gc-bar-wrap:nth-child(2) .gc-bar{animation-delay:.12s}
+.gc-bar-wrap:nth-child(3) .gc-bar{animation-delay:.19s}
+.gc-bar-wrap:nth-child(4) .gc-bar{animation-delay:.26s}
+.gc-bar-wrap:nth-child(5) .gc-bar{animation-delay:.33s}
+.gc-bar-wrap:nth-child(6) .gc-bar{animation-delay:.40s}
+@media(max-width:960px){
+  .grow-inner{grid-template-columns:1fr;gap:56px}
+  .grow-card{max-width:460px}
+}
+@media(max-width:600px){
+  .grow-feats{grid-template-columns:1fr;gap:28px}
+  #grow{padding:72px 20px}
+}
+
 /* ── FAQ ── */
 #faq{background:var(--bg)}
 .faq-grid{margin-top:48px;display:flex;flex-direction:column;gap:0;border:1.5px solid var(--border);border-radius:20px;overflow:hidden;box-shadow:var(--shadow)}
@@ -893,6 +956,80 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
 
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ── GROW ── -->
+<section id="grow">
+  <div class="grow-inner">
+
+    <!-- Left copy + features -->
+    <div class="grow-left">
+      <h2 class="grow-title reveal">Know every fan.<br>Grow every creator.</h2>
+      <p class="grow-sub reveal d1">Use Mappa Pro's analytics and inbox tools to personalize outreach, spot your top spenders, and scale revenue across every creator you manage.</p>
+
+      <div class="grow-feats">
+
+        <div class="reveal d1">
+          <div class="gf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+          </div>
+          <div class="gf-title">Unified inbox</div>
+          <div class="gf-desc">Every creator's fan messages in one place. Reply, track context, and never drop a conversation.</div>
+        </div>
+
+        <div class="reveal d2">
+          <div class="gf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg>
+          </div>
+          <div class="gf-title">Revenue analytics</div>
+          <div class="gf-desc">Real-time earnings per creator — broken down by tips, subscriptions, and PPV across any time period.</div>
+        </div>
+
+        <div class="reveal d3">
+          <div class="gf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg>
+          </div>
+          <div class="gf-title">Top spenders</div>
+          <div class="gf-desc">See exactly which fans are spending the most across every account. Prioritize high-value relationships.</div>
+        </div>
+
+        <div class="reveal d4">
+          <div class="gf-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div class="gf-title">Scripts & snippets</div>
+          <div class="gf-desc">Save your best messages as templates. Personalize with fan name automatically — fast, consistent replies at scale.</div>
+        </div>
+
+      </div>
+
+      <a href="https://mappa-pro.onrender.com" class="grow-cta reveal d5">Try for free →</a>
+    </div>
+
+    <!-- Right: analytics card mockup -->
+    <div class="grow-card reveal d2">
+      <div class="gc-label">Revenue overview</div>
+      <div class="gc-total-lbl">Total earnings this month</div>
+      <div class="gc-total">$12,847.30</div>
+      <div class="gc-chart">
+        <div class="gc-bar-wrap"><div class="gc-bar" style="height:38%"></div><div class="gc-lbl">Mon</div></div>
+        <div class="gc-bar-wrap"><div class="gc-bar" style="height:52%"></div><div class="gc-lbl">Tue</div></div>
+        <div class="gc-bar-wrap"><div class="gc-bar" style="height:44%"></div><div class="gc-lbl">Wed</div></div>
+        <div class="gc-bar-wrap"><div class="gc-bar" style="height:68%"></div><div class="gc-lbl">Thu</div></div>
+        <div class="gc-bar-wrap"><div class="gc-bar" style="height:78%"></div><div class="gc-lbl">Fri</div></div>
+        <div class="gc-bar-wrap"><div class="gc-bar" style="height:90%"></div><div class="gc-lbl">Sat</div></div>
+        <svg class="gc-line" viewBox="0 0 420 140" preserveAspectRatio="none" fill="none">
+          <polyline points="30,90 100,70 170,80 240,50 310,38 390,18" stroke="#1a5eb8" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" opacity=".6"/>
+          <circle cx="390" cy="18" r="4" fill="#1a5eb8"/>
+        </svg>
+      </div>
+      <div class="gc-footer">
+        <div class="gc-period">Last 7 days</div>
+        <div class="gc-badge">↑ 18% vs last week</div>
+      </div>
+    </div>
+
   </div>
 </section>
 
