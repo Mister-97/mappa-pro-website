@@ -618,8 +618,16 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
 
 /* ── RESPONSIVE ── */
 @media(max-width:1024px){
-  .hero-inner{grid-template-columns:1fr;gap:64px}
-  .hero-visual{display:none}
+  .hero-inner{grid-template-columns:1fr;gap:48px;text-align:center}
+  .hero-badge{margin-left:auto;margin-right:auto}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-ctas{justify-content:center}
+  .hero-trust{justify-content:center}
+  .hero-visual{justify-content:center}
+  .app-mockup{width:min(500px,90vw);transform:none}
+  .app-mockup:hover{transform:none}
+  .fc1,.fc3{display:none}
+  .fc2{top:-10px;right:-10px}
   .features-grid{grid-template-columns:1fr 1fr}
   .stats-inner{grid-template-columns:1fr 1fr}
 }
@@ -627,6 +635,7 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
   nav{padding:0 20px}
   .nav-links{display:none}
   section{padding:72px 20px}
+  #hero{padding:130px 20px 80px}
   #stats{padding:48px 20px}
   .features-grid{grid-template-columns:1fr}
   .p-feats-grid{grid-template-columns:1fr}
@@ -635,10 +644,13 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
   .how-step{grid-template-columns:60px 1fr}
   .hero-title{letter-spacing:-2px}
   .cta-actions{flex-direction:column;align-items:center}
+  .fc2{display:none}
+  .m-side{width:100px}
 }
 @media(max-width:480px){
   .stats-inner{grid-template-columns:1fr}
   section{padding:56px 16px}
+  .m-stats{grid-template-columns:repeat(2,1fr)}
 }
 </style>
 </head>
