@@ -410,12 +410,19 @@ section{padding:100px 40px;position:relative}
 .tier-price-wrap{display:flex;align-items:baseline;gap:3px;margin-bottom:6px}
 .tier-price-num{font-size:42px;font-weight:900;color:var(--text);letter-spacing:-2px;line-height:1}
 .tier-price-mo{font-size:15px;color:var(--text2);font-weight:500}
-.tier-earnings-range{font-size:13px;color:var(--text2);margin-bottom:20px;line-height:1.5}
-.tier-divider{height:1px;background:var(--border);margin-bottom:18px}
-.tier-feats{list-style:none;display:flex;flex-direction:column;gap:9px;flex:1}
-.tier-feat{display:flex;align-items:flex-start;gap:8px;font-size:13px;color:var(--text2);line-height:1.4}
-.tier-feat-check{width:16px;height:16px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
-.tier-cta-row{margin-top:22px}
+.tier-earnings-range{font-size:13px;color:var(--text2);margin-bottom:24px;line-height:1.5;flex:1}
+.tier-cta-row{margin-top:auto}
+/* shared features block */
+.all-features{
+  background:#fff;border:1.5px solid var(--border);border-radius:20px;
+  padding:32px 36px;margin-top:16px;margin-bottom:8px;
+}
+.all-features-title{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:1.2px;color:var(--text3);margin-bottom:20px;text-align:center}
+.all-features-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 20px}
+@media(max-width:860px){.all-features-grid{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:480px){.all-features-grid{grid-template-columns:1fr}}
+.all-feat{display:flex;align-items:center;gap:9px;font-size:13.5px;color:var(--text2)}
+.all-feat-check{width:18px;height:18px;border-radius:50%;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0}
 .btn-tier{
   display:block;width:100%;padding:12px;border-radius:11px;font-size:14px;font-weight:700;
   text-align:center;text-decoration:none;border:none;cursor:pointer;font-family:inherit;
@@ -1033,14 +1040,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
             <div class="tier-price-mo">/mo</div>
           </div>
           <div class="tier-earnings-range">Creators earning<br><strong>under $2,500/mo</strong></div>
-          <div class="tier-divider"></div>
-          <ul class="tier-feats">
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Unified inbox</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Revenue analytics</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Scripts &amp; templates</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Team management</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Fan insights</li>
-          </ul>
           <div class="tier-cta-row">
             <a href="https://app.mappa.pro" class="btn-tier btn-tier-outline">Get started →</a>
           </div>
@@ -1055,14 +1054,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
             <div class="tier-price-mo">/mo</div>
           </div>
           <div class="tier-earnings-range">Creators earning<br><strong>$2,500 – $10,000/mo</strong></div>
-          <div class="tier-divider"></div>
-          <ul class="tier-feats">
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Everything in Starter</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Top spenders tracking</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Chatter performance KPIs</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Earnings &amp; payouts tab</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Mass messaging</li>
-          </ul>
           <div class="tier-cta-row">
             <a href="https://app.mappa.pro" class="btn-tier btn-tier-fill">Get started →</a>
           </div>
@@ -1076,14 +1067,6 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
             <div class="tier-price-mo">/mo</div>
           </div>
           <div class="tier-earnings-range">Creators earning<br><strong>$10,000 – $30,000/mo</strong></div>
-          <div class="tier-divider"></div>
-          <ul class="tier-feats">
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Everything in Growth</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Advanced fan scoring</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Commission tracking</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Subscriber trend charts</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Priority support</li>
-          </ul>
           <div class="tier-cta-row">
             <a href="https://app.mappa.pro" class="btn-tier btn-tier-outline">Get started →</a>
           </div>
@@ -1097,20 +1080,31 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
             <div class="tier-price-mo">/mo</div>
           </div>
           <div class="tier-earnings-range">Creators earning<br><strong>$30,000+/mo</strong></div>
-          <div class="tier-divider"></div>
-          <ul class="tier-feats">
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Everything in Pro</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Unlimited team members</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Chatter clock-in tracking</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Full audit log</li>
-            <li class="tier-feat"><div class="tier-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Dedicated onboarding</li>
-          </ul>
           <div class="tier-cta-row">
             <a href="https://app.mappa.pro" class="btn-tier btn-tier-outline">Get started →</a>
           </div>
         </div>
 
       </div><!-- /tier-cards -->
+
+      <!-- Shared features — all tiers get everything -->
+      <div class="all-features">
+        <div class="all-features-title">Everything included at every tier</div>
+        <div class="all-features-grid">
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Unified inbox</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Revenue analytics</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Fan spending insights</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Top spenders tracking</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Scripts &amp; templates</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Team roles &amp; permissions</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Chatter performance KPIs</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Earnings &amp; payouts tab</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Mass messaging</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Multi-account management</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Commission tracking</div>
+          <div class="all-feat"><div class="all-feat-check"><svg width="9" height="9" viewBox="0 0 12 12" fill="none"><path d="M2 6l3 3 5-5" stroke="#16a34a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>Secure Fanvue OAuth</div>
+        </div>
+      </div>
 
       <p class="pricing-footnote">All plans include a free trial · No credit card required · Invoiced monthly · Cancel anytime</p>
 
