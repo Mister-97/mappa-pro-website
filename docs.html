@@ -426,7 +426,7 @@ code{font-family:'SF Mono',Monaco,Consolas,monospace;font-size:12px;background:v
           <p>Mappa Pro connects via Fanvue's official OAuth 2.0 API. Your creator passwords are never stored — only encrypted tokens.</p>
         </div>
         <h2>How it works</h2>
-        <p>Mappa Pro uses <strong>OAuth 2.0 with PKCE</strong> — the same secure flow used by major platforms. When you connect an account, you're redirected to Fanvue's official login page. After you authorize, Fanvue sends a token back which we encrypt using <strong>AES-256</strong> before storing. Your password never touches our servers.</p>
+        <p>Mappa Pro uses <strong>Fanvue's official OAuth authorization flow</strong> — the same secure method used by major platforms. When you connect an account, you're redirected to Fanvue's official login page. After you authorize, Fanvue sends a token back which we encrypt and store securely. Your password never touches our servers.</p>
         <div class="box tip"><div class="box-icon">✅</div><div>You never share the creator's Fanvue password with Mappa Pro. Authorization happens entirely on Fanvue's own page.</div></div>
         <h2>Connecting an account</h2>
         <div class="steps">
@@ -960,11 +960,11 @@ code{font-family:'SF Mono',Monaco,Consolas,monospace;font-size:12px;background:v
         </div>
         <h2>How we protect your data</h2>
         <ul>
-          <li><strong>OAuth 2.0 PKCE</strong> — Fanvue connections use the secure PKCE flow. Your creator passwords never reach Mappa Pro servers.</li>
-          <li><strong>AES-256 encryption</strong> — All Fanvue access tokens are encrypted at rest.</li>
-          <li><strong>JWT authentication</strong> — Every API request between your browser and our backend is signed and verified.</li>
-          <li><strong>Row-level security</strong> — Database policies enforce that users can only access their own organization's data, even at the database layer.</li>
-          <li><strong>Role enforcement</strong> — Every API endpoint checks your role server-side. Frontend-only changes cannot escalate permissions.</li>
+          <li><strong>Secure Fanvue connection</strong> — Account connections use Fanvue's official authorization flow. Your creator passwords never reach Mappa Pro servers.</li>
+          <li><strong>Encrypted token storage</strong> — All Fanvue access tokens are encrypted before being stored.</li>
+          <li><strong>Authenticated requests</strong> — Every request between your browser and our backend is authenticated and verified.</li>
+          <li><strong>Organization-level data isolation</strong> — Users can only access data belonging to their own organization.</li>
+          <li><strong>Server-side role enforcement</strong> — Permissions are enforced on the server. Access cannot be escalated from the browser.</li>
         </ul>
         <div class="box tip"><div class="box-icon">✅</div><div>Use a strong, unique password for your Mappa Pro account. If you suspect unauthorized access, change your password immediately.</div></div>
         <div class="pnav"><div class="pnav-btn" onclick="openArticle('profile-settings')"><small>← Previous</small><span>Profile & organization</span></div><div class="pnav-btn right" onclick="openArticle('billing')"><small>Next →</small><span>Plans & billing</span></div></div>
