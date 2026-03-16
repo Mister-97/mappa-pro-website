@@ -1012,7 +1012,7 @@ const docsEl = document.getElementById('docs');
 const sidebarEl = document.getElementById('sidebar');
 
 function showHome() {
-  homeEl.style.display = '';
+  homeEl.style.display = 'block';
   docsEl.style.display = 'none';
   sidebarEl.classList.remove('open');
   window.scrollTo({top:0,behavior:'instant'});
@@ -1030,7 +1030,7 @@ function openCategory(cat) {
 
 function openArticle(id) {
   homeEl.style.display = 'none';
-  docsEl.style.display = '';
+  docsEl.style.display = 'block';
   document.querySelectorAll('.article').forEach(a => a.classList.remove('active'));
   document.querySelectorAll('.sb-link').forEach(l => l.classList.remove('active'));
   const art = document.getElementById('art-' + id);
