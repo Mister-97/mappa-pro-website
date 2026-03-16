@@ -81,11 +81,14 @@ body{font-family:'Inter',system-ui,sans-serif;color:var(--text);background:var(-
 .pop-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px}
 .pop-card{
   background:var(--bg);border:1px solid var(--border2);border-radius:10px;
-  padding:18px 20px;cursor:pointer;transition:all .18s;display:flex;gap:12px;align-items:flex-start}
+  padding:18px 20px;cursor:pointer;transition:all .18s;display:flex;flex-direction:column;gap:10px}
 .pop-card:hover{border-color:rgba(26,94,184,.3);box-shadow:var(--shadow);transform:translateY(-2px)}
-.pop-icon{flex-shrink:0;font-size:20px;margin-top:1px}
-.pop-body h4{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:3px}
-.pop-body p{font-size:12.5px;color:var(--text2);line-height:1.5}
+.pop-icon{
+  flex-shrink:0;width:36px;height:36px;border-radius:9px;
+  background:var(--bg2);border:1px solid var(--border2);
+  display:flex;align-items:center;justify-content:center;font-size:17px;line-height:1}
+.pop-body h4{font-size:13.5px;font-weight:700;color:var(--text);margin-bottom:4px}
+.pop-body p{font-size:12.5px;color:var(--text2);line-height:1.55;margin:0}
 
 /* ── DOCS VIEW ── */
 #docs{display:none;padding-top:var(--topbar)}
