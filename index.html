@@ -618,6 +618,166 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
   section{padding:56px 16px}
   .m-stats{grid-template-columns:repeat(2,1fr)}
 }
+
+/* ── AI CHAT SECTION ── */
+#ai-chat-section{
+  padding:80px 40px;
+  background:linear-gradient(160deg,#0d1117 0%,#0f172a 50%,#0d1117 100%);
+  position:relative;overflow:hidden;
+}
+.ai-chat-bg-grid{
+  position:absolute;inset:0;pointer-events:none;
+  background-image:radial-gradient(rgba(59,154,212,0.06) 1px,transparent 1px);
+  background-size:28px 28px;
+}
+.ai-chat-glow{
+  position:absolute;width:500px;height:500px;border-radius:50%;
+  background:radial-gradient(circle,rgba(26,94,184,0.15),transparent 70%);
+  top:50%;left:50%;transform:translate(-50%,-50%);pointer-events:none;
+}
+.ai-chat-inner{
+  max-width:760px;margin:0 auto;position:relative;z-index:2;
+}
+.ai-chat-header{
+  text-align:center;margin-bottom:36px;
+}
+.ai-chat-label{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(26,94,184,0.15);border:1px solid rgba(59,154,212,0.25);
+  color:#60a5fa;font-size:12px;font-weight:700;letter-spacing:.5px;text-transform:uppercase;
+  padding:6px 14px;border-radius:100px;margin-bottom:16px;
+}
+.ai-chat-label-dot{
+  width:6px;height:6px;border-radius:50%;background:#60a5fa;
+  animation:pulseDot 2s ease-in-out infinite;display:inline-block;
+}
+.ai-chat-title{
+  font-size:clamp(26px,4vw,40px);font-weight:800;letter-spacing:-1px;
+  color:#f1f5f9;line-height:1.2;margin-bottom:10px;
+}
+.ai-chat-title span{
+  background:linear-gradient(135deg,#3b9ad4,#60a5fa);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.ai-chat-subtitle{
+  font-size:15px;color:#94a3b8;line-height:1.6;
+}
+
+/* Chat window */
+.ai-chat-window{
+  background:#161b27;border:1px solid rgba(255,255,255,0.07);
+  border-radius:20px;overflow:hidden;
+  box-shadow:0 0 0 1px rgba(59,154,212,0.08),0 32px 80px rgba(0,0,0,0.5);
+}
+.ai-chat-messages{
+  min-height:200px;max-height:380px;overflow-y:auto;
+  padding:24px 24px 8px;display:flex;flex-direction:column;gap:14px;
+  scroll-behavior:smooth;
+}
+.ai-chat-messages::-webkit-scrollbar{width:4px}
+.ai-chat-messages::-webkit-scrollbar-track{background:transparent}
+.ai-chat-messages::-webkit-scrollbar-thumb{background:rgba(255,255,255,0.1);border-radius:4px}
+
+/* Suggestion pills (shown when no chat yet) */
+.ai-suggestions{
+  display:flex;flex-wrap:wrap;gap:8px;padding:0 24px 16px;
+  transition:opacity .3s;
+}
+.ai-suggestions.hidden{display:none}
+.ai-sug-pill{
+  background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);
+  color:#94a3b8;font-size:13px;padding:8px 14px;border-radius:100px;
+  cursor:pointer;transition:all .2s;white-space:nowrap;
+}
+.ai-sug-pill:hover{background:rgba(59,154,212,0.12);border-color:rgba(59,154,212,0.3);color:#60a5fa}
+
+/* Chat bubbles */
+.ai-msg{
+  display:flex;gap:10px;align-items:flex-start;max-width:88%;
+  animation:fadeUp .3s cubic-bezier(.16,1,.3,1) both;
+}
+.ai-msg.user{align-self:flex-end;flex-direction:row-reverse}
+.ai-msg-avatar{
+  width:28px;height:28px;border-radius:50%;flex-shrink:0;
+  display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;
+}
+.ai-msg.bot .ai-msg-avatar{background:linear-gradient(135deg,#1a5eb8,#3b9ad4);color:#fff}
+.ai-msg.user .ai-msg-avatar{background:linear-gradient(135deg,#374151,#4b5563);color:#d1d5db}
+.ai-msg-bubble{
+  padding:11px 15px;border-radius:16px;font-size:14px;line-height:1.65;
+}
+.ai-msg.bot .ai-msg-bubble{
+  background:rgba(255,255,255,0.06);color:#e2e8f0;border-radius:4px 16px 16px 16px;
+}
+.ai-msg.user .ai-msg-bubble{
+  background:linear-gradient(135deg,#1a5eb8,#2563eb);color:#fff;border-radius:16px 16px 4px 16px;
+}
+
+/* Typing indicator */
+.ai-typing{
+  display:flex;gap:10px;align-items:center;padding:4px 0;
+  animation:fadeIn .2s ease both;
+}
+.ai-typing-dots{
+  display:flex;gap:5px;background:rgba(255,255,255,0.06);
+  padding:11px 16px;border-radius:4px 16px 16px 16px;
+}
+.ai-typing-dots span{
+  width:7px;height:7px;border-radius:50%;background:#60a5fa;opacity:.4;
+  animation:typingDot 1.2s ease-in-out infinite;
+}
+.ai-typing-dots span:nth-child(2){animation-delay:.2s}
+.ai-typing-dots span:nth-child(3){animation-delay:.4s}
+@keyframes typingDot{0%,60%,100%{opacity:.2;transform:translateY(0)} 30%{opacity:1;transform:translateY(-4px)}}
+
+/* Input bar */
+.ai-chat-input-row{
+  display:flex;align-items:center;gap:10px;padding:14px 16px;
+  border-top:1px solid rgba(255,255,255,0.06);background:#0f1420;
+}
+.ai-chat-input{
+  flex:1;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.09);
+  border-radius:12px;padding:12px 16px;font-size:14px;color:#f1f5f9;
+  font-family:'Inter',system-ui,sans-serif;outline:none;resize:none;
+  transition:border-color .2s;min-height:44px;max-height:120px;line-height:1.5;
+}
+.ai-chat-input::placeholder{color:#4b5563}
+.ai-chat-input:focus{border-color:rgba(59,154,212,0.4)}
+.ai-chat-btn{
+  width:40px;height:40px;border-radius:10px;border:none;
+  display:flex;align-items:center;justify-content:center;cursor:pointer;
+  flex-shrink:0;transition:all .2s;
+}
+.ai-mic-btn{
+  background:rgba(255,255,255,0.06);color:#64748b;
+}
+.ai-mic-btn:hover{background:rgba(255,255,255,0.1);color:#94a3b8}
+.ai-mic-btn.recording{
+  background:rgba(239,68,68,0.15);color:#ef4444;
+  animation:micPulse 1s ease-in-out infinite;
+}
+@keyframes micPulse{0%,100%{box-shadow:0 0 0 0 rgba(239,68,68,.3)} 50%{box-shadow:0 0 0 8px rgba(239,68,68,0)}}
+.ai-send-btn{
+  background:linear-gradient(135deg,#1a5eb8,#2563eb);color:#fff;
+}
+.ai-send-btn:hover{background:linear-gradient(135deg,#1d4fa8,#1d4ed8);transform:scale(1.05)}
+.ai-send-btn:disabled{opacity:.4;cursor:not-allowed;transform:none}
+.ai-send-btn svg,.ai-mic-btn svg{pointer-events:none}
+
+/* Powered by */
+.ai-powered{
+  text-align:center;padding:12px;border-top:1px solid rgba(255,255,255,0.04);
+  font-size:11px;color:#334155;letter-spacing:.3px;
+}
+.ai-powered a{color:#475569;text-decoration:none}
+
+@media(max-width:640px){
+  #ai-chat-section{padding:60px 16px}
+  .ai-chat-messages{max-height:300px}
+  .ai-suggestions{padding:0 16px 12px}
+  .ai-sug-pill{font-size:12px;padding:7px 12px}
+  .ai-chat-input-row{padding:10px 12px}
+}
 </style>
 </head>
 <body>
@@ -756,6 +916,44 @@ footer{background:var(--bg);border-top:1px solid var(--border);padding:40px 40px
       </div>
     </div>
 
+  </div>
+</section>
+
+<!-- ── AI CHAT ── -->
+<section id="ai-chat-section">
+  <div class="ai-chat-bg-grid"></div>
+  <div class="ai-chat-glow"></div>
+  <div class="ai-chat-inner reveal">
+    <div class="ai-chat-header">
+      <div class="ai-chat-label"><span class="ai-chat-label-dot"></span>AI Assistant</div>
+      <h2 class="ai-chat-title">Got questions? Ask <span>Mappa</span>.</h2>
+      <p class="ai-chat-subtitle">Ask anything about features, pricing, or how it works — or just record your voice.</p>
+    </div>
+    <div class="ai-chat-window">
+      <div class="ai-chat-messages" id="aiMessages">
+        <div class="ai-msg bot">
+          <div class="ai-msg-avatar">M</div>
+          <div class="ai-msg-bubble">Hey! I'm Mappa 👋 Ask me anything about Mappa Pro — pricing, features, how to get started, whatever you need.</div>
+        </div>
+      </div>
+      <div class="ai-suggestions" id="aiSuggestions">
+        <button class="ai-sug-pill" onclick="aiSendSuggestion(this)">What's the pricing?</button>
+        <button class="ai-sug-pill" onclick="aiSendSuggestion(this)">What features are included?</button>
+        <button class="ai-sug-pill" onclick="aiSendSuggestion(this)">How do I get started?</button>
+        <button class="ai-sug-pill" onclick="aiSendSuggestion(this)">Is there a free trial?</button>
+        <button class="ai-sug-pill" onclick="aiSendSuggestion(this)">How does chatter tracking work?</button>
+      </div>
+      <div class="ai-chat-input-row">
+        <textarea class="ai-chat-input" id="aiInput" placeholder="Ask anything…" rows="1" onkeydown="aiInputKeydown(event)" oninput="aiAutoResize(this)"></textarea>
+        <button class="ai-chat-btn ai-mic-btn" id="aiMicBtn" onclick="aiToggleMic()" title="Voice input">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+        </button>
+        <button class="ai-chat-btn ai-send-btn" id="aiSendBtn" onclick="aiSend()" title="Send">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
+        </button>
+      </div>
+      <div class="ai-powered">Powered by Google Gemini · <a href="#pricing">View pricing</a></div>
+    </div>
   </div>
 </section>
 
@@ -1290,6 +1488,135 @@ window.addEventListener('scroll', () => {
   if (b1) b1.style.transform = `translate(0, ${y * 0.12}px)`;
   if (b2) b2.style.transform = `translate(0, ${y * -0.08}px)`;
 }, {passive:true});
+
+// ── AI CHAT ──
+const AI_API = 'https://app.mappapro.co/api/website-chat';
+let aiHistory = [];
+let aiRecognition = null;
+let aiIsRecording = false;
+let aiIsLoading = false;
+
+function aiAutoResize(el) {
+  el.style.height = 'auto';
+  el.style.height = Math.min(el.scrollHeight, 120) + 'px';
+}
+
+function aiInputKeydown(e) {
+  if (e.key === 'Enter' && !e.shiftKey) {
+    e.preventDefault();
+    aiSend();
+  }
+}
+
+function aiSendSuggestion(btn) {
+  const text = btn.textContent;
+  document.getElementById('aiSuggestions').classList.add('hidden');
+  document.getElementById('aiInput').value = text;
+  aiSend();
+}
+
+function aiAppendMsg(role, text) {
+  const wrap = document.getElementById('aiMessages');
+  const div = document.createElement('div');
+  div.className = `ai-msg ${role}`;
+  const initial = role === 'bot' ? 'M' : '👤';
+  div.innerHTML = `<div class="ai-msg-avatar">${initial}</div><div class="ai-msg-bubble">${text.replace(/\n/g,'<br>')}</div>`;
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function aiShowTyping() {
+  const wrap = document.getElementById('aiMessages');
+  const div = document.createElement('div');
+  div.className = 'ai-typing';
+  div.id = 'aiTyping';
+  div.innerHTML = `<div class="ai-msg-avatar" style="width:28px;height:28px;border-radius:50%;background:linear-gradient(135deg,#1a5eb8,#3b9ad4);display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:700;color:#fff;flex-shrink:0">M</div><div class="ai-typing-dots"><span></span><span></span><span></span></div>`;
+  wrap.appendChild(div);
+  wrap.scrollTop = wrap.scrollHeight;
+}
+
+function aiHideTyping() {
+  const t = document.getElementById('aiTyping');
+  if (t) t.remove();
+}
+
+async function aiSend() {
+  if (aiIsLoading) return;
+  const input = document.getElementById('aiInput');
+  const msg = input.value.trim();
+  if (!msg) return;
+
+  document.getElementById('aiSuggestions').classList.add('hidden');
+  aiAppendMsg('user', msg);
+  aiHistory.push({ role: 'user', content: msg });
+  input.value = '';
+  aiAutoResize(input);
+
+  aiIsLoading = true;
+  const sendBtn = document.getElementById('aiSendBtn');
+  sendBtn.disabled = true;
+  aiShowTyping();
+
+  try {
+    const res = await fetch(AI_API, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ message: msg, history: aiHistory.slice(-6) }),
+    });
+    const data = await res.json();
+    aiHideTyping();
+    const reply = data.reply || data.error || 'Something went wrong. Please try again.';
+    aiAppendMsg('bot', reply);
+    aiHistory.push({ role: 'assistant', content: reply });
+  } catch (err) {
+    aiHideTyping();
+    aiAppendMsg('bot', 'Hmm, I had trouble connecting. Try again in a moment!');
+  } finally {
+    aiIsLoading = false;
+    sendBtn.disabled = false;
+    input.focus();
+  }
+}
+
+function aiToggleMic() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+  if (!SpeechRecognition) {
+    alert('Voice input is not supported in your browser. Try Chrome or Edge.');
+    return;
+  }
+  if (aiIsRecording) {
+    aiRecognition.stop();
+    return;
+  }
+  aiRecognition = new SpeechRecognition();
+  aiRecognition.lang = 'en-US';
+  aiRecognition.interimResults = false;
+  aiRecognition.maxAlternatives = 1;
+
+  const micBtn = document.getElementById('aiMicBtn');
+  micBtn.classList.add('recording');
+  aiIsRecording = true;
+
+  aiRecognition.onresult = (e) => {
+    const transcript = e.results[0][0].transcript;
+    const input = document.getElementById('aiInput');
+    input.value = transcript;
+    aiAutoResize(input);
+    aiSend();
+  };
+
+  aiRecognition.onerror = () => {
+    micBtn.classList.remove('recording');
+    aiIsRecording = false;
+  };
+
+  aiRecognition.onend = () => {
+    micBtn.classList.remove('recording');
+    aiIsRecording = false;
+  };
+
+  aiRecognition.start();
+}
 
 // ── FEAT BARS ANIMATE ON VISIBLE ──
 const barObs = new IntersectionObserver(entries => {
